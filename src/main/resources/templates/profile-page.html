@@ -1,0 +1,135 @@
+<!--Website: wwww.codingdung.com-->
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Profile</title>
+    <link rel="stylesheet" href="css/main.css"/>
+    <link
+            href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.0/dist/css/bootstrap.min.css"
+            rel="stylesheet"
+    />
+
+</head>
+
+<body>
+<div class="entire-content">
+    <div class="video-background">
+        <video autoplay muted loop class="background-video">
+            <source src="images/background-profile.mp4" type="video/mp4">
+            Your browser does not support HTML5 video.
+        </video>
+    </div>
+    <div class="panel-configuration">
+        <div class="side-panel">
+            <div class="profile-picture">
+                <img class="image" src="images/test.png">
+            </div>
+
+            <div class="panel-buttons">
+                <div class="background-panel">
+                    <button class="button-panel">Profile</button>
+                </div>
+            </div>
+        </div>
+        <div class="main-panel">
+            <!-- <nav class="navbar">
+        <a href="#">Home</a>
+        <a href="#">Portfolio</a>
+        <a href="#">About</a>
+        <a href="#">Contact</a>
+        <a href="#">Help</a>
+      </nav>
+      <form action="" class="search-bar">
+        <input type="text" placeholder="Search..." />
+        <button><i class="bx bx-search"></i></button>
+      </form> -->
+            <div class="panel-title">My Profile</div>
+            <form action="profile" th:object="${userProfileDto}" method="post" class="card-body">
+
+                <input type="hidden" name="_method" value="PATCH">
+                <input th:field="*{id}" type="hidden" required/>
+                <div class="inputs-section">
+
+
+                <div class="input-row">
+                    <div class="form-group">
+                        <label class="form-label">First Name</label>
+                        <input th:field="*{firstName}" type="text" class="form-control mb-1"/>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Phone Number</label>
+                        <input th:field="*{phoneNumber}" type="text" class="form-control mb-1"/>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">City</label>
+                        <input th:field="*{city}" type="text" class="form-control mb-1"/>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Zip Code</label>
+                        <input th:field="*{postalCode}" type="text" class="form-control mb-1"/>
+                    </div>
+                </div>
+                <div class="input-row">
+                    <div class="form-group">
+                        <label class="form-label">Last Name</label>
+                        <input th:field="*{lastName}" type="text" class="form-control"/>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Address</label>
+                        <input th:field="*{address}" type="text" class="form-control"/>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Country</label>
+                        <input th:field="*{country}" type="text" class="form-control"/>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Date of Birth</label>
+                        <input th:field="*{dob}" type="text" class="form-control"/>
+                    </div>
+                </div>
+                </div>
+                <div class="text-right mt-3">
+                    <button type="submit" class="btn btn-primary">Save changes</button>&nbsp;
+                </div>
+            </form>
+        </div>
+    </div>
+
+
+    <!--        <div class="background-video">-->
+    <!--          <video autoplay muted loop class="video-background">-->
+    <!--                <source src="images/background-profile.mp4" type="video/mp4">-->
+    <!--          </video>-->
+    <!--        -->
+    <!--        </div>-->
+    <!--        <div class="container-profile">-->
+    <!--            <div class="title-section">My profile</div>-->
+    <!--            <div class="card-section">-->
+    <!--              <div class="card-body media align-items-center">-->
+
+    <!--                <div class="media-body ml-4">-->
+    <!--                  <label class="btn btn-outline-primary">-->
+    <!--                    Upload new photo-->
+    <!--                    <input type="file" class="account-settings-fileinput" />-->
+    <!--                  </label>-->
+    <!--                  &nbsp;-->
+    <!--                  <button type="button" class="btn btn-default md-btn-flat">-->
+    <!--                    Reset-->
+    <!--                  </button>-->
+    <!--                  <div class="text-light small mt-1">-->
+    <!--                    Allowed JPG, GIF or PNG. Max size of 800K-->
+    <!--                  </div>-->
+    <!--                </div>-->
+    <!--              </div>-->
+    <!--              <hr class="border-light m-0" />-->
+
+    <!--            </div>-->
+
+    <!--          </div>-->
+</div>
+
+
+</body>
+</html>

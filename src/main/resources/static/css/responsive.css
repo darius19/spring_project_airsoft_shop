@@ -1,0 +1,113 @@
+@media screen and (max-width: 1100px) {
+
+    .container {
+        flex-direction: column;
+    }
+
+    .item {
+        order: -1;
+        padding: 0;
+    }
+    .item .logo-container {
+        max-width: 100px;
+        height: 100px;
+        width: 100%;
+        margin: 0 auto;
+    }
+
+    .text-item h2 {
+        font-size: 25px;
+
+    }
+
+    .login-section .form-box {
+        position: absolute;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        height: 238px;
+    }
+
+    .middle-content {
+
+        width: 88%;
+        min-height: 492px;
+
+    }
+
+    .login-section .form-box.register {
+        transform: translateX(640px);
+    }
+
+    .login-section .form-box.forget-pass {
+        transform: translateX(600px);
+    }
+
+    .login-section.forget .form-box.login {
+        transform: translateX(622px);
+    }
+
+    .login-section.forget .form-box.register {
+        transform: translateX(600px);
+    }
+
+    .form-box.login .title{
+        display: none
+    ;
+    }
+
+    .login-section.active .form-box.login {
+        transform: translateX(636px);
+
+    }
+
+    .form-box .register{
+        height: 203px;
+
+    }
+
+    .form-box.register form{
+        height: 302px;
+        width: 216px;
+    }
+
+    .form-box.register .input-box {
+        height: 30px;
+        margin: 28px 0;
+    }
+
+    .form-box.register .input-box .icon{
+        top: 4px;
+
+    }
+
+    .form-box.register .title{
+        display: none;
+    }
+
+    .form-box.forget-pass{
+        height: 323px;
+    }
+
+    .form-box.login{
+        height: 288px;
+    }
+    .create-account{
+        margin: -2px;
+    }
+
+    .form-box.register .remember-password {
+        margin: 6px;
+    }
+
+
+
+}
+
+
+@media screen and (max-width: 1000px) {
+    .middle-content {
+        min-height: 517px;
+    }
+}

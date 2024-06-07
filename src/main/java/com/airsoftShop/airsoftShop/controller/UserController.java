@@ -8,6 +8,9 @@ import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
+
+import java.io.IOException;
 
 
 @Controller
@@ -37,9 +40,6 @@ public class UserController {
         model.addAttribute("userRegistrationDto", new UserRegistrationDto());
         model.addAttribute("userRegFailed", usersRegFailedMessage);
 
-
-
-
         return "register-page";
     }
 
@@ -50,17 +50,24 @@ public class UserController {
     }
 
     @GetMapping("/profile")
-    public String showProfileForm(Model model, Authentication authentication) {
+    public String showProfileForm(Model model, Authentication authentication ) throws IOException {
         model.addAttribute("userProfileDto", userService.getUserProfileDto(authentication.getName()));
         return "profile-page";
     }
 
     @PatchMapping("/profile")
-    public String updateUser(@ModelAttribute UserProfileDto userProfileDto) {
-        System.out.println("test");
-        userService.updateUser(userProfileDto);
-        return "profile-page";
+    public String updateUser(@ModelAttribute UserProfileDto userProfileDto ,@RequestParam("image") MultipartFile multipartFile) throws IOException {
+        userService.updateUser(userProfileDto, multipartFile);
+        return "redirect:/profile";
     }
+
+    @DeleteMapping("/profile")
+    public String deleteUser(@ModelAttribute UserProfileDto userProfileDto) {
+        userService.deleteUser(userProfileDto);
+        return "redirect:/logout";
+    }
+
+
 
 
 }

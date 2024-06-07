@@ -34,6 +34,7 @@ public class SecurityMain {
                     auth.requestMatchers("/test").authenticated();
                     auth.requestMatchers("/register").permitAll();
                     auth.requestMatchers("/profile").authenticated();
+                    auth.requestMatchers("/products").authenticated();
 //                    auth.requestMatchers("/").permitAll();
 //                    auth.requestMatchers("/adminPage").hasRole(Role.ROLE_ADMIN.getSecurityName());
                 });

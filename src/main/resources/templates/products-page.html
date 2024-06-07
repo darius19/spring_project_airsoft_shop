@@ -1,10 +1,17 @@
 <!DOCTYPE html>
+
 <html xmlns:th="http://www.thymeleaf.org" lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Products</title>
+    <link rel="icon" type="image/png" href="images/logo.png" />
 </head>
 <body>
+<section class = "main-container" >
+    <div class="item" th:each="product:${products}">
+        <h2 th:text="${product.name}"></h2>
+    </div>
 
+</section>
 </body>
 </html>

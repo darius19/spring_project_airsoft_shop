@@ -15,21 +15,24 @@
 
 <body>
 <div class="entire-content">
-    <div class="video-background">
-        <video autoplay muted loop class="background-video">
-            <source src="images/background-profile.mp4" type="video/mp4">
-            Your browser does not support HTML5 video.
-        </video>
-    </div>
+
     <div class="panel-configuration">
         <div class="side-panel">
             <div class="profile-picture">
-                <img class="image" src="images/test.png">
+                <img class="image" th:if="${userProfileDto.logoImg != null}" th:src= "'data:image/jpeg;base64,' + ${userProfileDto.logoImg}"  alt="Image" />
+                <img class="image" th:unless="${userProfileDto.logoImg != null}" src= "/images/test.png"  alt="Test img" />
+
+                <!--                <img class="image" th:src= "images/logo.png"  alt="Image" />-->
             </div>
+            <div class="welcome-message" th:text="'Welcome, ' + ${userProfileDto.username} + '!'"></div>
 
             <div class="panel-buttons">
                 <div class="background-panel">
-                    <button class="button-panel">Profile</button>
+                    <form action="profile" th:object="${userProfileDto}" method="post" >
+                        <input type="hidden" name="_method" value="DELETE">
+                        <input th:field="*{id}" type="hidden" required/>
+                    <button type="submit" class="button-panel">Delete User</button>
+                    </form>
                 </div>
             </div>
         </div>
@@ -45,8 +48,7 @@
         <input type="text" placeholder="Search..." />
         <button><i class="bx bx-search"></i></button>
       </form> -->
-            <div class="panel-title">My Profile</div>
-            <form action="profile" th:object="${userProfileDto}" method="post" class="card-body">
+            <form action="profile" th:object="${userProfileDto}" method="post" class="card-body" enctype="multipart/form-data" >
 
                 <input type="hidden" name="_method" value="PATCH">
                 <input th:field="*{id}" type="hidden" required/>
@@ -69,6 +71,10 @@
                     <div class="form-group">
                         <label class="form-label">Zip Code</label>
                         <input th:field="*{postalCode}" type="text" class="form-control mb-1"/>
+                    </div>
+                    <div class="form-group">
+                        <label for="logo-img-input" class="form-label">Upload Image</label>
+                        <input type="file" name="image" class="form-control mb-1" id="logo-img-input" accept="image/*"  />
                     </div>
                 </div>
                 <div class="input-row">
@@ -98,36 +104,7 @@
     </div>
 
 
-    <!--        <div class="background-video">-->
-    <!--          <video autoplay muted loop class="video-background">-->
-    <!--                <source src="images/background-profile.mp4" type="video/mp4">-->
-    <!--          </video>-->
-    <!--        -->
-    <!--        </div>-->
-    <!--        <div class="container-profile">-->
-    <!--            <div class="title-section">My profile</div>-->
-    <!--            <div class="card-section">-->
-    <!--              <div class="card-body media align-items-center">-->
 
-    <!--                <div class="media-body ml-4">-->
-    <!--                  <label class="btn btn-outline-primary">-->
-    <!--                    Upload new photo-->
-    <!--                    <input type="file" class="account-settings-fileinput" />-->
-    <!--                  </label>-->
-    <!--                  &nbsp;-->
-    <!--                  <button type="button" class="btn btn-default md-btn-flat">-->
-    <!--                    Reset-->
-    <!--                  </button>-->
-    <!--                  <div class="text-light small mt-1">-->
-    <!--                    Allowed JPG, GIF or PNG. Max size of 800K-->
-    <!--                  </div>-->
-    <!--                </div>-->
-    <!--              </div>-->
-    <!--              <hr class="border-light m-0" />-->
-
-    <!--            </div>-->
-
-    <!--          </div>-->
 </div>
 
 

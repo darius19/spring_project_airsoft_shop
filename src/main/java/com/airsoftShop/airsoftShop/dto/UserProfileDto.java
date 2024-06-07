@@ -2,6 +2,7 @@ package com.airsoftShop.airsoftShop.dto;
 
 
 import com.airsoftShop.airsoftShop.model.Role;
+import jakarta.persistence.Column;
 import jakarta.persistence.EnumType;
 import jakarta.persistence.Enumerated;
 import jakarta.persistence.Id;
@@ -23,4 +24,5 @@ public class UserProfileDto {
     private String country;
     private String postalCode;
     private String dob;
+    private String logoImg;
 }
